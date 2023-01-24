@@ -7,22 +7,16 @@ import { NovaTransferenciaComponent } from './nova-transferencia/nova-transferen
 const routes: Routes = [
   {
     path:'',
-    redirectTo: 'explorando-o-framework',
+    component: ExplorandoOFrameworkComponent,
     pathMatch:'full'
   },
   {
-    path:'explorando-o-framework',
-    component: ExplorandoOFrameworkComponent,
-    children:[
-      {
-        path:'nova-transferencia',
-        component: NovaTransferenciaComponent,
-      },
-      {
-        path:'extrato',
-        component: ExtratoComponent,
-      },
-    ]
+    path:'nova-transferencia',
+    component: NovaTransferenciaComponent,
+  },
+  {
+    path:'extrato',
+    component: ExtratoComponent,
   },
 ];
 

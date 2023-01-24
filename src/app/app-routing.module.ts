@@ -5,8 +5,12 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
-    path: 'alura',
+    path: 'explorando-o-framework',
     loadChildren: () => import('./alura/explorando-o-framework/explorando-o-framework.module').then(m => m.ExplorandoOFrameworkModule)
+  },
+  {
+    path: 'boas-praticas-em-arquiteturas-e-formularios',
+    loadChildren: () => import('./alura/boas-praticas-em-arquiteturas-e-formularios/boas-praticas-em-arquiteturas-e-formularios.module').then(m => m.BoasPraticasEmArquiteturasEFormulariosModule)
   }
 ];
 

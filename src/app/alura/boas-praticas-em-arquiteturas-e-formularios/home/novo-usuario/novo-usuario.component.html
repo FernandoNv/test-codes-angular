@@ -1,0 +1,90 @@
+<h4 class="text-center">Registre-se e mostre seu pet ao mundo!</h4>
+<form class="form mt-4" [formGroup]="novoUsuarioForm" (ngSubmit)="cadastrar()">
+  <div class="form-group mt-4">
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="E-mail"
+      class="form-control"
+      formControlName="email"
+    />
+    <app-mensagem
+      *ngIf="email?.errors?.['required'] && (email?.invalid && (email?.dirty || email?.touched))"
+      mensagem="E-mail obrigatório"
+    ></app-mensagem>
+
+    <app-mensagem
+      *ngIf="email?.errors?.['email'] && (email?.invalid && (email?.dirty || email?.touched))"
+      mensagem="E-mail no formato incorreto"
+    ></app-mensagem>
+  </div>
+
+  <div class="form-group mt-4">
+    <input
+      type="text"
+      name="nome"
+      id="nome"
+      placeholder="Nome Completo"
+      class="form-control"
+      formControlName="fullName"
+    />
+    <app-mensagem
+      *ngIf="
+        fullName?.errors &&
+        fullName?.invalid &&
+        (fullName?.dirty || fullName?.touched)
+      "
+      mensagem="Nome incorreto"
+    ></app-mensagem>
+  </div>
+
+  <div class="form-group mt-4">
+    <input
+      type="text"
+      name="usuario"
+      id="usuario"
+      placeholder="Usuário"
+      class="form-control"
+      formControlName="userName"
+    />
+    <app-mensagem
+      *ngIf="userName?.errors?.['minusculo'] && (userName?.invalid && (userName?.dirty || userName?.touched))"
+      mensagem="O usuário deve ser em letra minúscula"
+    ></app-mensagem>
+
+    <app-mensagem
+      *ngIf="userName?.errors?.['usuarioExistente'] && (userName?.invalid && (userName?.dirty || userName?.touched))"
+      mensagem="Usuário já existe"
+    ></app-mensagem>
+  </div>
+
+  <div class="form-group mt-4">
+    <input
+      type="password"
+      name="senha"
+      id="senha"
+      placeholder="Senha"
+      class="form-control"
+      formControlName="password"
+    />
+
+    <app-mensagem
+      *ngIf="novoUsuarioForm.errors?.['senhaIgualUsuario']"
+      mensagem="Senha deve ser diferente do usuário"
+    ></app-mensagem>
+  </div>
+
+  <div class="d-grid gap-2 mt-4">
+    <button
+      [disabled]="novoUsuarioForm.invalid"
+      type="submit"
+      class="btn btn-primary"
+    >
+      Cadastro
+    </button>
+  </div>
+</form>
+<p class="mt-4">
+  Já é um usuário? <a [routerLink]="['../../home']">Faça o login!</a>
+</p>
