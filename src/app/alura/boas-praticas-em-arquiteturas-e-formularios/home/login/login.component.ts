@@ -24,7 +24,8 @@ export class LoginComponent {
       },
       error: (error) => {
         console.log(error);
-        this.router.navigate(['../animais'], { relativeTo: this.route });
+        alert('Usuário ou senha inválido');
+        // this.router.navigate(['../animais'], { relativeTo: this.route });
       },
     });
   }

@@ -18,13 +18,13 @@ export class AutenticacaoService {
   ): Observable<HttpResponse<any>> {
     const url = 'http://localhost:3000/user/login';
     const body = {
-      userNme: usuario,
+      userName: usuario,
       password: senha,
     };
 
     return this.httpClient.post(url, body, { observe: 'response' }).pipe(
       tap((response) => {
-        const authToken = response.headers.get('x-acess-token') ?? '';
+        const authToken = response.headers.get('x-access-token') ?? '';
         this.usuarioService.salvaToken(authToken);
       })
     );

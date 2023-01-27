@@ -13,6 +13,5 @@ import { RodapeModule } from './componentes/rodape/rodape.module';
     CabecalhoModule,
     RodapeModule,
   ],
-  bootstrap: [BoasPraticasEmArquiteturasEFormulariosComponent],
 })
 export class BoasPraticasEmArquiteturasEFormulariosModule {}

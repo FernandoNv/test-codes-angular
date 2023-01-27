@@ -20,6 +20,6 @@ export class CabecalhoComponent {
 
   public logout(): void {
     this.usuarioService.logout();
-    this.router.navigate(['../home', { relativeTo: this.route }]);
+    this.router.navigate(['home'], { relativeTo: this.route });
   }
 }

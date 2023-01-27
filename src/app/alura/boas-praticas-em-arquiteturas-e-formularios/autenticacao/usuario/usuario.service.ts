@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UsuarioService {
-  private usuarioSubject = new BehaviorSubject({});
+  private usuarioSubject = new BehaviorSubject<Usuario>({});
 
   constructor(private tokenService: TokenService) {
     if (this.tokenService.possuiToken()) {
@@ -22,6 +22,7 @@ export class UsuarioService {
       this.usuarioSubject.next(usuario);
     } catch (error) {
       console.log('Deu ruim na conversão do token para usuario ', error);
+      this.tokenService.excluiToken();
       this.usuarioSubject.next({});
     }
   }

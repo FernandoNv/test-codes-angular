@@ -7,7 +7,7 @@ const KEY = 'token';
 })
 export class TokenService {
   public retornaToken() {
-    return localStorage.getItem(KEY);
+    return localStorage.getItem(KEY) ?? '';
   }
 
   public salvaToken(token: string) {
@@ -19,6 +19,6 @@ export class TokenService {
   }
 
   public possuiToken() {
-    return !!this.retornaToken;
+    return !!this.retornaToken();
   }
 }
