@@ -5,24 +5,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import localePt from '@angular/common/locales/pt'
+import localePt from '@angular/common/locales/pt';
 import { HttpClientModule } from '@angular/common/http';
+import { AutenticacaoModule } from './alura/boas-praticas-em-arquiteturas-e-formularios/autenticacao/autenticacao.module';
 
 registerLocaleData(localePt, 'pt');
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AutenticacaoModule,
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'pt' },
-    {provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' }
+    { provide: LOCALE_ID, useValue: 'pt' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
